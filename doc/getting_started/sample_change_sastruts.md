@@ -23,7 +23,7 @@
 
 **[サンプルアプリケーション公開場所]**
 
-[https://github.com/oscana/draft-s2n/releases](https://github.com/oscana/draft-s2n/releases)
+[https://github.com/oscana/oscana-s2n/releases](https://github.com/oscana/oscana-s2n/releases)
 
 **[zipファイルの探し方]**
 
