@@ -58,26 +58,26 @@ Oscanaによる移行先となるNablarchはミッションクリティカルな
 
 本コンテンツでは、SAStruts,Struts1それぞれのExampleをベースにしたサンプルアプリケーションを変換元として提供しています。これらのサンプルは、変換後の手作業による修正がほぼ不要です。簡単な手順にて一連の開発の流れを体験することができます。
 
-１．[リライトツールをインストールする](https://github.com/oscana/oscana-s2n/blob/main/doc/getting_started/tool_install.md)<br>
-２．[互換ライブラリをインストールする](https://github.com/oscana/oscana-s2n/blob/main/doc/getting_started/runtime_install.md)<br>
-３．[サンプルアプリケーションを変換する(Struts1)](https://github.com/oscana/oscana-s2n/blob/main/doc/getting_started/sample_change_struts.md)<br>
-４．[サンプルアプリケーションを変換する(SAStruts)](https://github.com/oscana/oscana-s2n/blob/main/doc/getting_started/sample_change_sastruts.md)<br>
+１．[リライトツールをインストールする](https://github.com/oscana/oscana-s2n/blob/master/doc/getting_started/tool_install.md)<br>
+２．[互換ライブラリをインストールする](https://github.com/oscana/oscana-s2n/blob/master/doc/getting_started/runtime_install.md)<br>
+３．[サンプルアプリケーションを変換する(Struts1)](https://github.com/oscana/oscana-s2n/blob/master/doc/getting_started/sample_change_struts.md)<br>
+４．[サンプルアプリケーションを変換する(SAStruts)](https://github.com/oscana/oscana-s2n/blob/master/doc/getting_started/sample_change_sastruts.md)<br>
 
 ## 活用ガイド
 
 Oscanaを用いたマイグレーションの進め方をより深く解説したコンテンツです。<br>アプリケーションを変換する方法と、コンパイル結果やソース上の注釈コメントなどから、開発作業が必要な個所を見つける方法を記載しています。
 
-１．[アプリケーションを変換する](https://github.com/oscana/oscana-s2n/blob/main/doc/rebuild_guide/users_guide.md)<br>
-２．[開発作業が必要な個所を見つける](https://github.com/oscana/oscana-s2n/blob/main/doc/rebuild_guide/rebuild_guide.md)
+１．[アプリケーションを変換する](https://github.com/oscana/oscana-s2n/blob/master/doc/rebuild_guide/users_guide.md)<br>
+２．[開発作業が必要な個所を見つける](https://github.com/oscana/oscana-s2n/blob/master/doc/rebuild_guide/rebuild_guide.md)
 
 ## リファレンス
 
 Oscanaによるマイグレーションにより、アプリケーションが使用していた旧フレームワーク(SAStruts, Struts1)の機能はNablarchの類似する機能に置き換えられます。<br>
 このコンテンツでは、カスタムタグ、バリデーション、APIの新旧対応表、互換ライブラリのJavadocを提供します。
 
-  * [カスタムタグ変換リファレンス](https://github.com/oscana/oscana-s2n/blob/main/doc/reference/customtag_conversion_reference.pdf)<br>
-  * [バリデーション変換リファレンス](https://github.com/oscana/oscana-s2n/blob/main/doc/reference/validation_conversion_reference.pdf)<br>
-  * [新旧API対応表](https://github.com/oscana/oscana-s2n/blob/main/doc/reference/api_conversion_reference.pdf)<br>
+  * [カスタムタグ変換リファレンス](https://github.com/oscana/oscana-s2n/blob/master/doc/reference/customtag_conversion_reference.pdf)<br>
+  * [バリデーション変換リファレンス](https://github.com/oscana/oscana-s2n/blob/master/doc/reference/validation_conversion_reference.pdf)<br>
+  * [新旧API対応表](https://github.com/oscana/oscana-s2n/blob/master/doc/reference/api_conversion_reference.pdf)<br>
   * 互換ライブラリのJavadoc([Struts](https://oscana.github.io/javadoc/oscana-s2n-runtime-struts), [SAStruts](https://oscana.github.io/javadoc/oscana-s2n-runtime-sastruts))
 
 
