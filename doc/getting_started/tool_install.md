@@ -23,7 +23,7 @@
 
 <img src="../image/github_release.png" width ="800" >
 
-※お使いのブラウザの種類やGitHub自体のUI変更などにより、上記UIとは異なる場合があります。（上記はWindows 10 Edgeの場合)
+※お使いのブラウザの種類やGitHub自体のUI変更などにより、上記UIとは異なる場合があります。（上記はWindows 10 Edgeの場合)<br>
 ※`oscana-converter.zip`に付与されているバージョン番号は更新されるので画像とは異なる場合があります。
 
 
@@ -38,7 +38,7 @@
 | converter/javaconverter.jar | javaコンバータ実行ファイル |
 | converter/jspconverter.jar | jspコンバータ実行ファイル |
 | converter/sample.properties | デフォルト設定ファイル |
-| converter/converter/log | コンバータの実行結果ログの出力先 |
+| converter/converter/logs | コンバータの実行結果のログの出力先 |
 | converter/converter/work | 変換作業ディレクトリ（変換元ソース格納場所、変換先ソース出力場所） |
 
 展開して作成された`converter`はリライトツールのホームディレクトリとなります。

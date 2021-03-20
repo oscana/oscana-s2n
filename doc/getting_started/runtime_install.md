@@ -169,7 +169,7 @@ generateWebProject.bat 5u18 com.example myapp-web 0.1.0 com.example
   </component>
 ```
 
-#### ■handler_dev.xmlへの追記
+#### ■handler_dev.xmlの修正
 
  - 修正対象:`myapp-web/src/env/dev/resources/handler_dev.xml`
 
@@ -203,7 +203,7 @@ generateWebProject.bat 5u18 com.example myapp-web 0.1.0 com.example
         -->
         <component-ref name="threadContextHandler"/>
         <component class="nablarch.common.web.handler.HttpAccessLogHandler"/>
-        <component class="nablarch.fw.web.handler.NormalizationHandler" />
+-       <component class="nablarch.fw.web.handler.NormalizationHandler" />
         <component class="nablarch.fw.web.handler.ForwardingHandler"/>
         <component-ref name="httpErrorHandler" />
         <component-ref name="nablarchTagHandler"/>
@@ -319,10 +319,14 @@ nablarch.core.validation.ee.Length.min.max.message
 
 ## 4.動作確認
 
-Nablarchのブランクプロジェクトのホームディレクトリ上で、以下のコマンドを順に実行し、いずれも `BUILD SUCCESS`となればインストールは成功しています。
+Nablarchのブランクプロジェクトのホームディレクトリ上で、以下のコマンドを順に実行し、いずれも `BUILD SUCCESS`となり、Webブラウザが起動して画面が表示されれば成功です。
 
 ```
 mvn clean
 mvn compile
 mvn waitt:run
 ```
+
+**[画面イメージ]**
+
+<img src="../image/runtime_install_result.png" width ="800" >

@@ -44,9 +44,10 @@
 
 |種類| コピー元(zipファイル内のパス) | コピー先(リライトツール) | 備考 |
 |--|--|--|--|
-|javaソース |oscana-example-struts/WEB-INF/src/java/   | converter/work/java/from/ |`oscana-example-struts/WEB-INF/src/java/`配下のファイルをすべてコピーしてください。|
-|jspソース | oscana-example-struts/ | converter/work/jsp/from/ |`oscana-example-struts/`配下の`*.jsp`ファイルだけをコピーしてください。(対象ファイルが存在しないディレクトリに対する空ディレクトリ作成は不要です)|
-|設定| oscana-example-struts/WEB-INF/ | converter/work/conf/from/ |`oscana-example-struts/WEB-INF/`配下の`struts-config.xml`、`validation.xml`だけをコピーしてください。(対象ファイルが存在しないディレクトリに対する空ディレクトリ作成は不要です)|
+|javaソース |oscana-example-struts/WEB-INF/src/java/   | converter/work/java/from/ |`oscana-example-struts/WEB-INF/src/java/`配下のファイル・ディレクトリをすべてコピーしてください。|
+|jspソース | oscana-example-struts/ | converter/work/jsp/from/ |`oscana-example-struts/`配下の`upload`フォルダ、`validator`フォルダ、`welcome.jsp`をコピーしてください。<br>※`validator`フォルダにはjsp以外のファイルが含まれています。`validator`フォルダからはjspファイルだけをコピーしてください。|
+|設定| oscana-example-struts/WEB-INF/ | converter/work/conf/from/ |`oscana-example-struts/WEB-INF/`配下の`upload`フォルダ、`validator`フォルダをコピーしてください。|
+
 
 
 ### 2.2 リライトツールの設定変更
@@ -61,12 +62,11 @@
 | basePackage |変換対象アプリケーションのBaseパッケージ  |com.example| org.apache.struts.webapp |
 | savePathForRoutexml | routes.xmlの出力先 | work/routes.xml  | （修正不要）  |
 | fileEncoding | ソースファイルの文字コード | UTF-8  | （修正不要）  |
-| strutsAnalyze.strutsConfigFile| struts-config.xml（複数指定可） |（なし）| conf/from/struts-config.xml,conf/from/validator/struts-config.xml,conf/from/upload/struts-config.xml  |
-| strutsAnalyze.validationFile| validation.xml（複数指定可） |（なし）| ,conf/from/validator/validation.xml,conf/from/upload/validation.xml  |
-| strutsAnalyze.module| struts-config.xmlに付与しているmodule名（複数指定可） |（なし）| ,validator,upload  |
+| strutsAnalyze.strutsConfigFile| struts-config.xml（複数指定可） |（なし）| conf/from/validator/struts-config.xml,conf/from/upload/struts-config.xml  |
+| strutsAnalyze.validationFile| validation.xml（複数指定可） |（なし）| conf/from/validator/validation.xml,conf/from/upload/validation.xml  |
+| strutsAnalyze.module| struts-config.xmlに付与しているmodule名（複数指定可） |（なし）| validator,upload  |
 | convertMode| 変換元アプリケーションの利用フレームワーク(1...Struts、2...SAStruts)| 2  | 1|
 
-※strutsAnalyze.validationFile、strutsAnalyze.moduleの設定値は先頭がカンマで始まります。先頭のカンマが漏れないようにご注意ください。
 
 
 
@@ -85,10 +85,16 @@ java -jar jspconverter.jar sample.properties
 
 以下のソースを修正してください。
 
-- 修正対象：`converter/work/java/to/java/org/apache/struts/webapp/validator/RegistrationForm.java`
+- 修正対象：`converter/work/java/to/org/apache/struts/webapp/validator/RegistrationForm.java`
 
 
 ```diff
+
+   import oscana.s2n.validation.Pattern;
+   import oscana.s2n.validation.Length;
+   import oscana.s2n.validation.Email;
++  import oscana.s2n.validation.FieldName;
+    ．．．
     @Required
     @Pattern(regexp = "^\\w+$")
     @Length(min = 5)
@@ -138,9 +144,9 @@ java -jar jspconverter.jar sample.properties
 
 |種類| コピー元(リライトツール） | コピー先(myapp-web) | 備考 |
 |--|--|--|--|
-|javaソース |converter/work/java/to/java/   | myapp-web/src/main/java/ |`converter/work/java/to/java/`配下のファイルをすべてコピーしてください。|
-|jspソース | converter/work/jsp/to/ | myapp-web/src/main/webapp/WEB-INF/view/ |`converter/work/jsp/to/`配下のファイルをすべてコピーしてください。|
-|routes.xml| converter/work/routes.xml| myapp-web/src/main/resources/ |`routes.xml`だけコピーしてください。|
+|javaソース |converter/work/java/to/   | myapp-web/src/main/java/ |`converter/work/java/to/`配下のファイル・ディレクトリをすべてコピーしてください。|
+|jspソース | converter/work/jsp/to/ | myapp-web/src/main/webapp/ |`converter/work/jsp/to/`配下のファイル・ディレクトリをすべてコピーしてください。|
+|routes.xml| converter/work/routes.xml| myapp-web/src/main/resources/ |`routes.xml`だけをコピーしてください。|
 
 
 
@@ -253,7 +259,16 @@ nablarch.commonProperty.basePackage要素を以下のように修正してくだ
 
 ```
 
-### 3.4 アプリケーションのビルド
+### 3.4 画面表示用ファイルの配置
+
+「[1.サンプルアプリケーションのダウンロード](#1サンプルアプリケーションのダウンロード)」でダウンロードしたzipファイルから画面表示に必要なファイルをmyapp-webにコピーしてください。
+
+|種類| コピー元(zipファイル内のパス） | コピー先(myapp-web) | 備考 |
+|--|--|--|--|
+|htmlファイル |oscana-example-struts/index.html   | myapp-web/src/main/webapp/ |`index.html`だけをコピーしてください。|
+|gifファイル |oscana-example-struts/validator/struts-power.gif   | myapp-web/src/main/webapp/validator/ |`struts-power.gif`だけをコピーしてください。|
+
+### 3.5 アプリケーションのビルド
 
 Nablarchのブランクプロジェクトのホームディレクトリ上で、以下のコマンドを順に実行し、アプリケーションをビルドしてください。<br>
 いずれも `BUILD SUCCESS`となれば成功です。
@@ -264,7 +279,7 @@ mvn compile
 ```
 
 
-### 3.5 アプリケーションの実行
+### 3.6 アプリケーションの実行
 
 Nablarchのブランクプロジェクトのホームディレクトリ上で、以下のコマンドを実行し、アプリケーションを実行してください。<br>
 `BUILD SUCCESS`となり、Webブラウザが起動して画面が表示されれば成功です。
@@ -273,3 +288,6 @@ Nablarchのブランクプロジェクトのホームディレクトリ上で、
 mvn waitt:run
 ```
 
+**[画面イメージ]**
+
+<img src="../image/sample_change_struts_result.png" >
