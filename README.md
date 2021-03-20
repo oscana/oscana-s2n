@@ -42,14 +42,12 @@ Oscanaによる移行先となるNablarchはミッションクリティカルな
 互換ライブラリは移行元フレームワークの機能をNablarch上で再現させるものです。<br>
 互換ライブラリをNablarchにプラグインすることで、旧フレームワークに依存したコードがそのまま、もしくは、小さな修正だけで動作するようになります。<br>
 
-**[互換ライブラリの主な内容]**
+**[互換ライブラリの主な内容]**<br>
   * *Java互換API* - 旧フレームワークにあるAPIをNablarchに移植したもの。
   * *イベントハンドラアダプタ* - 旧フレームワークで呼び出されるイベントハンドラをNablarchからも呼び出されるようにしたもの。
   * *バリデータ* - 旧フレームワークにあるバリデーションをNablarchに移植したもの。
   * *SQLコンバータ* - S2JDBCの制御構文をNablarch上で実行するSQLコンバータ。
   * *メッセージフィルタ* - 旧フレームワーク形式のメッセージをNablarchでも使用できるようにするフィルタ。
-
-
 
 
 ## はじめてみよう - Getting Started
@@ -75,11 +73,13 @@ Oscanaを用いたマイグレーションの進め方をより深く解説し�
 ## リファレンス
 
 Oscanaによるマイグレーションにより、アプリケーションが使用していた旧フレームワーク(SAStruts, Struts1)の機能はNablarchの類似する機能に置き換えられます。<br>
-このコンテンツでは、カスタムタグ、バリデーション、APIの新旧対応表を提供します。
+このコンテンツでは、カスタムタグ、バリデーション、APIの新旧対応表、互換ライブラリのJavadocを提供します。
 
-[カスタムタグ変換リファレンス](https://github.com/oscana/oscana-s2n/blob/master/doc/reference/customtag_conversion_reference.pdf)<br>
-[バリデーション変換リファレンス](https://github.com/oscana/oscana-s2n/blob/master/doc/reference/validation_conversion_reference.pdf)<br>
-[新旧API対応表](https://github.com/oscana/oscana-s2n/blob/master/doc/reference/api_reference.pdf)<br>
+  * [カスタムタグ変換リファレンス](https://github.com/oscana/oscana-s2n/blob/master/doc/reference/customtag_conversion_reference.pdf)<br>
+  * [バリデーション変換リファレンス](https://github.com/oscana/oscana-s2n/blob/master/doc/reference/validation_conversion_reference.pdf)<br>
+  * [新旧API対応表](https://github.com/oscana/oscana-s2n/blob/master/doc/reference/api_conversion_reference.pdf)<br>
+  * 互換ライブラリのJavadoc([Struts](https://oscana.github.io/javadoc/oscana-s2n-runtime-struts), [SAStruts](https://oscana.github.io/javadoc/oscana-s2n-runtime-sastruts))
+
 
 ## ライセンス
 

@@ -43,8 +43,8 @@
 
 |種類| コピー元(zipファイル内のパス) | コピー先(リライトツール) | 備考 |
 |--|--|--|--|
-|javaソース |oscana-example-sa-struts/src/main/java/   | converter/work/java/from/ |`oscana-example-sa-struts/src/main/java/`配下のファイルをすべてコピーしてください。|
-|jspソース | oscana-example-sa-struts/src/main/webapp/WEB-INF/view/ | converter/work/jsp/from/ |`oscana-example-sa-struts/src/main/webapp/WEB-INF/view/`配下のファイルをすべてコピーしてください。|
+|javaソース |oscana-example-sa-struts/src/main/java/   | converter/work/java/from/ |`oscana-example-sa-struts/src/main/java/`配下のファイル・ディレクトリをすべてコピーしてください。|
+|jspソース | oscana-example-sa-struts/src/main/webapp/WEB-INF/view/ | converter/work/jsp/from/ |`oscana-example-sa-struts/src/main/webapp/WEB-INF/view/`配下のファイル・ディレクトリをすべてコピーしてください。|
 
 
 ### 2.2 リライトツールの設定変更
@@ -88,9 +88,9 @@ SAStruts用サンプルアプリケーションは変換後の修正が不要で
 
 |種類| コピー元(リライトツール） | コピー先(myapp-web) | 備考 |
 |--|--|--|--|
-|javaソース |converter/work/java/to/java/   | myapp-web/src/main/java/ |`converter/work/java/to/java/`配下のファイルをすべてコピーしてください。|
-|jspソース | converter/work/jsp/to/ | myapp-web/src/main/webapp/WEB-INF/view/ |`converter/work/jsp/to/`配下のファイルをすべてコピーしてください。|
-|routes.xml| converter/work/routes.xml| myapp-web/src/main/resources/ |`routes.xml`だけコピーしてください。|
+|javaソース |converter/work/java/to/   | myapp-web/src/main/java/ |`converter/work/java/to/`配下のファイル・ディレクトリをすべてコピーしてください。|
+|jspソース | converter/work/jsp/to/ | myapp-web/src/main/webapp/WEB-INF/view/ |`converter/work/jsp/to/`配下のファイル・ディレクトリをすべてコピーしてください。|
+|routes.xml| converter/work/routes.xml| myapp-web/src/main/resources/ |`routes.xml`だけをコピーしてください。|
 
 
 ### 3.2 SAStruts用互換ライブラリを使用するための設定修正
@@ -196,8 +196,15 @@ nablarch.commonProperty.basePackage要素を以下のように修正してくだ
 
 ```
 
+### 3.4 画面表示用ファイルの配置
 
-### 3.4 アプリケーションのビルド
+「[1.サンプルアプリケーションのダウンロード](#1サンプルアプリケーションのダウンロード)」でダウンロードしたzipファイルから画面表示に必要なファイルをmyapp-webにコピーしてください。
+
+|種類| コピー元(zipファイル内のパス） | コピー先(myapp-web) | 備考 |
+|--|--|--|--|
+|htmlファイル |oscana-example-sa-struts/src/main/webapp/   | myapp-web/src/main/webapp/ |`index.html`だけをコピーしてください。|
+
+### 3.5 アプリケーションのビルド
 
 Nablarchのブランクプロジェクトのホームディレクトリ上で、以下のコマンドを順に実行し、アプリケーションをビルドしてください。<br>
 いずれも `BUILD SUCCESS`となれば成功です。
@@ -208,7 +215,7 @@ mvn compile
 ```
 
 
-### 3.5 アプリケーションの実行
+### 3.6 アプリケーションの実行
 
 Nablarchのブランクプロジェクトのホームディレクトリ上で、以下のコマンドを実行し、アプリケーションを実行してください。<br>
 `BUILD SUCCESS`となり、Webブラウザが起動して画面が表示されれば成功です。
@@ -217,5 +224,7 @@ Nablarchのブランクプロジェクトのホームディレクトリ上で、
 mvn waitt:run
 ```
 
+**[画面イメージ]**
 
+<img src="../image/sample_change_sastruts_result.png" >
 
