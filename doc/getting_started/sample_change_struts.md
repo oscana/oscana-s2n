@@ -83,6 +83,7 @@ java -jar jspconverter.jar sample.properties
 
 ### 2.4 ソースコードの修正
 
+項目値精査でエラーが発生した時にエラーメッセージに項目名を含めるためにFieldNameアノテーションを追加します。
 以下のソースを修正してください。
 
 - 修正対象：`converter/work/java/to/org/apache/struts/webapp/validator/RegistrationForm.java`

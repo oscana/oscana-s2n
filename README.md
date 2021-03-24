@@ -2,21 +2,31 @@
 
 ## Oscanaとは
 
-**Oscana** は、EOLを迎えた[SAStruts](http://sastruts.seasar.org/)や[Struts1](https://struts.apache.org/struts1eol-announcement.html)を使用したアプリケーションを、長期的に利用可能なOSSフレームワークである[Nablarch](http://nablarch.github.io/)を使用したアプリケーションにマイグレーションするツールです。<br>
+**Oscana（オスカーナ）** は、EOLを迎えた[SAStruts](http://sastruts.seasar.org/)や[Struts1](https://struts.apache.org/struts1eol-announcement.html)を使用したアプリケーションを、長期的に利用可能なOSSフレームワークである[Nablarch](http://nablarch.github.io/)を使用したアプリケーションにマイグレーションするツールです。<br>
 
 Javaのソースコードだけでなく、JSP、SQLファイルや各種設定ファイルも含めた業務アプリケーションの大部分を自動で変換することにより、マイグレーションにおける開発作業にかかる工数を大幅に削減することができます。<br>
 
 EOLを迎えたSAStruts、Struts1は脆弱性への対応が停止しているため、これらの継続利用はセキュリティ上のリスクを伴う可能性があります。Oscanaは、これらのフレームワークを利用するアプリケーションを、安全でモダンなフレームワークであるNablarchのアプリケーションへと自動変換することで、このリスクを迅速に解消します。<br>
 
+<table border="0.5">
+<tr><td>
+<b>Nablarchについて</b><br>
+Oscanaによる移行先となるNablarchは、Webアプリケーションの開発／実行基盤として、金融・クレジットカード業界におけるTISのナレッジを凝縮し、ミッションクリティカルな基幹系システムに必要な機能を揃えた独自Javaアプリケーションフレームワークです。<br>
+長期間使い続けることができるため、移行後は、EOL起因によるアプリケーションフレームワークのマイグレーションの心配がなくなります。<br>
+また、NablarchはOSSであるため、ベンダロックインとなることもありません。
+</td></tr>
+</table>
+
+
 ### コンセプト<br>
 
-**Oscana** におけるマイグレーションは、業務アプリケーションのうち、移行元フレームワーク(SAStruts/Struts1)に依存する部位だけを、移行先フレームワーク(Nablarch)に依存する形式にリライトする方式を採用しています。<br>
+Oscanaにおけるマイグレーションは、業務アプリケーションのうち、移行元フレームワーク(SAStruts/Struts1)に依存する部位だけを、移行先フレームワーク(Nablarch)に依存する形式にリライトする方式を採用しています。<br>
 このアプローチは、既存コードの再利用性を高め、機能の移植漏れや仕様不一致などの不具合が起こりにくく、安全・確実にマイグレーションを完遂させることができます。
 
 <img src="doc/image/oscana_gaiyou.png" width ="800" >
 
 Oscanaが提供するリライトツールは、コード解析・変換技術を活用することで依存個所の大半を自動検出し、変換することができます。<br>
-Oscanaによる移行先となるNablarchはミッションクリティカルな基幹系システムでの実績が豊富で、長期間使い続けることができるため、移行後は、EOL起因によるアプリケーションフレームワークのマイグレーションの心配がなくなります。また、NablarchはOSSであるため、ベンダロックインとなることもありません。<br>
+通常、機械的なリライトを行うと、互換性のための冗長なコードが大量に埋め込まれ、リライト後のメンテナンス性が低下しますが、Oscanaでは、変換元フレームワークの機能をエミュレートする互換ライブラリを提供することで、冗長なコードの生成を抑止しています。
 
 
 ### リライトツール
@@ -27,7 +37,7 @@ Oscanaによる移行先となるNablarchはミッションクリティカルな
   * Java
     * *Action* - インタフェースやアノテーションをNablarch形式にリライトする。
     * *Form* - バリデーションアノテーションをNablarchのバリデーションアノテーションにリライトする。
-    * *Service* - DBアクセス処理をNablarchのUniversalDao形式にリライトする。
+    * *Service* - DBアクセス処理をNablarchの[UniversalDao](https://nablarch.github.io/docs/LATEST/doc/application_framework/application_framework/libraries/database/universal_dao.html)形式にリライトする。
     * *Entity* - DBMSとのマッピング情報となるアノテーションをNablarchのUniversalDao形式にリライトする。
   * JSP
     * *JSP* - カスタムタグをNablarchのカスタムタグにリライトする。
@@ -52,7 +62,7 @@ Oscanaによる移行先となるNablarchはミッションクリティカルな
 
 ## はじめてみよう - Getting Started
 
-簡単なアプリケーションを変換し、動かしてみることを通じて、**Oscana**を用いたマイグレーションの考え方を紹介したコンテンツです。<br>
+簡単なアプリケーションを変換し、動かしてみることを通じて、Oscanaを用いたマイグレーションの考え方を紹介したコンテンツです。<br>
 
 リライトツールを用いてアプリケーションを変換し、お使いのPC上に構築したNablarch上で動作確認するまでの手順を記載しています。<br>
 
@@ -83,7 +93,7 @@ Oscanaによるマイグレーションにより、アプリケーションが�
 
 ## ライセンス
 
-Oscanaのソースコードのライセンスは[Apache License 2.0](https://fintan.jp/wp-content/uploads/2018/06/LICENSE.txt) に準拠しています。<br>
-付属のドキュメントのライセンスは[Fintan コンテンツ 使用許諾条項](https://fintan.jp/wp-content/uploads/2020/11/172fbd84c9f1ab241e8771b3f2830405.pdf)に準拠しています。
+  * Oscanaのソースコードのライセンスは[Apache License 2.0](https://fintan.jp/wp-content/uploads/2018/06/LICENSE.txt) に準拠しています。<br>
+  * 本文書も含め、ドキュメントのライセンスは[クリエイティブコモンズ(Creative Commons) 4.0 の「表示—継承」](https://creativecommons.org/licenses/by-sa/4.0/)に準拠しています。
 
 ※ 記載されている会社名、製品名は、各社の登録商標または商標です。
