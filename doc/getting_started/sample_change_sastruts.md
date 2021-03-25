@@ -1,6 +1,6 @@
 ## サンプルアプリケーションを変換する(SAStruts)
 
-本書では「[リライトツールをインストールする](tool_install.md)」でインストールしたツールを用いて、サンプルアプリケーションを変換し、変換結果を「[互換ライブラリをインストールする](runtime_install.md)」で構築したNablarchプロジェクトにコピーして動作を確認します。
+「[リライトツールをインストールする](tool_install.md)」でインストールしたツールを用いて、サンプルアプリケーションを変換し、変換結果を「[互換ライブラリをインストールする](runtime_install.md)」で構築したNablarchプロジェクトにコピーして動作を確認します。
 
 #### ファイル修正箇所の記述ルール
 
@@ -145,7 +145,6 @@ filter-mapping要素の既存パスを削除し、アプリケーション固有
 -   <url-pattern>/</url-pattern>
 +   <url-pattern>/add/*</url-pattern>
 +   <url-pattern>/download/*</url-pattern>
-+   <url-pattern>/index/*</url-pattern>
 +   <url-pattern>/upload/*</url-pattern>
 +   <url-pattern>/validator/*</url-pattern>
   ...
@@ -171,28 +170,28 @@ nablarch.commonProperty.basePackage要素を以下のように修正してくだ
 
 下記のアプリケーション固有のメッセージを追記してください。
 ```diff
-+byteText.label=バイト
-+shortText.label=短整数
-+integerText.label=整数
-+longText.label=長整数
-+floatText.label=短精度実数
-+doubleText.label=長精度実数
-+dateText.label=日付
-+creditcardText.label=クレジットカード
-+emailText.label=メールアドレス
-+urlText.label=URL
-+intRangeText.label=整数(3～10)
-+longRangeText.label=長整数(3～10)
-+floatRangeText.label=短精度実数(3.0～10.0)
-+doubleRangeText.label=倍精度実数(3.0～10.0)
-+minlengthText.label=文字列の長さの最小値が3
-+maxlengthText.label=文字列の長さの最大値が10
-+minbytelengthText.label=文字列のバイト長の最小値が3
-+maxbytelengthText.label=文字列のバイト長の最大値が10
-+phoneText.label=電話番号
-+formFile1.label=ファイル1
-+arg1.label=数字1
-+arg2.label=数字2
++byteText.label=バイトのテキスト
++shortText.label=短整数のテキスト
++integerText.label=整数のテキスト
++longText.label=長整数のテキスト
++floatText.label=短精度実数のテキスト
++doubleText.label=長精度実数のテキスト
++dateText.label=日付のテキスト
++creditcardText.label=クレジットカードのテキスト
++emailText.label=メールアドレスのテキスト
++urlText.label=URLのテキスト
++intRangeText.label=整数(3～10)のテキスト
++longRangeText.label=長整数(3～10)のテキスト
++floatRangeText.label=短精度実数(3.0～10.0)のテキスト
++doubleRangeText.label=倍精度実数(3.0～10.0)のテキスト
++minlengthText.label=文字列の長さの最小値が3のテキスト
++maxlengthText.label=文字列の長さの最大値が10のテキスト
++minbytelengthText.label=文字列のバイト長の最小値が3のテキスト
++maxbytelengthText.label=文字列のバイト長の最大値が10のテキスト
++phoneText.label=電話番号のテキスト
++formFile1.label=ファイルの選択
++arg1.label=被加数のテキスト
++arg2.label=加数のテキスト
 
 ```
 
@@ -202,7 +201,11 @@ nablarch.commonProperty.basePackage要素を以下のように修正してくだ
 
 |種類| コピー元(zipファイル内のパス） | コピー先(myapp-web) | 備考 |
 |--|--|--|--|
-|htmlファイル |oscana-example-sa-struts/src/main/webapp/   | myapp-web/src/main/webapp/ |`index.html`だけをコピーしてください。|
+|htmlファイル |oscana-example-sa-struts/src/main/webapp/   | myapp-web/src/main/webapp/ |`index.html`をコピーしてください。|
+|jsファイル |oscana-example-sa-struts/src/main/webapp/js/   | myapp-web/src/main/webapp/js/ |`jquery.js`をコピーしてください。|
+|cssファイル |oscana-example-sa-struts/src/main/webapp/css/   | myapp-web/src/main/webapp/css/ |`sa.css`をコピーしてください。|
+|workフォルダ |oscana-example-sa-struts/src/main/webapp/WEB-INF/work/   | myapp-web/src/main/webapp/WEB-INF/work/ |`work`フォルダをコピーしてください。|
+
 
 ### 3.5 アプリケーションのビルド
 

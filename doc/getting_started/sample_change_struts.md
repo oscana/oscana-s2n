@@ -1,6 +1,6 @@
 ## サンプルアプリケーションを変換する(Struts1)
 
-本書では「[リライトツールをインストールする](tool_install.md)」でインストールしたツールを用いて、サンプルアプリケーションを変換し、変換結果を「[互換ライブラリをインストールする](runtime_install.md)」で構築したNablarchプロジェクトにコピーして動作を確認します。
+「[リライトツールをインストールする](tool_install.md)」でインストールしたツールを用いて、サンプルアプリケーションを変換し、変換結果を「[互換ライブラリをインストールする](runtime_install.md)」で構築したNablarchプロジェクトにコピーして動作を確認します。
 
 
 #### ファイル修正箇所の記述ルール
@@ -44,9 +44,9 @@
 
 |種類| コピー元(zipファイル内のパス) | コピー先(リライトツール) | 備考 |
 |--|--|--|--|
-|javaソース |oscana-example-struts/WEB-INF/src/java/   | converter/work/java/from/ |`oscana-example-struts/WEB-INF/src/java/`配下のファイル・ディレクトリをすべてコピーしてください。|
-|jspソース | oscana-example-struts/ | converter/work/jsp/from/ |`oscana-example-struts/`配下の`upload`フォルダ、`validator`フォルダ、`welcome.jsp`をコピーしてください。<br>※`validator`フォルダにはjsp以外のファイルが含まれています。`validator`フォルダからはjspファイルだけをコピーしてください。|
-|設定| oscana-example-struts/WEB-INF/ | converter/work/conf/from/ |`oscana-example-struts/WEB-INF/`配下の`upload`フォルダ、`validator`フォルダをコピーしてください。|
+|javaソース |oscana-example-struts/src/   | converter/work/java/from/ |`oscana-example-struts/src/`配下のファイル・ディレクトリをすべてコピーしてください。|
+|jspソース | oscana-example-struts/WebContent/ | converter/work/jsp/from/ |`oscana-example-struts/WebContent/`配下の`display.jsp`、`registration.jsp`、`upload.jsp`、`welcome.jsp`をコピーしてください。|
+|設定| oscana-example-struts/WebContent/WEB-INF/ | converter/work/conf/from/ |`oscana-example-struts/WebContent/WEB-INF/`配下の`struts-config.xml`、`validation.xml`をコピーしてください。|
 
 
 
@@ -62,9 +62,9 @@
 | basePackage |変換対象アプリケーションのBaseパッケージ  |com.example| org.apache.struts.webapp |
 | savePathForRoutexml | routes.xmlの出力先 | work/routes.xml  | （修正不要）  |
 | fileEncoding | ソースファイルの文字コード | UTF-8  | （修正不要）  |
-| strutsAnalyze.strutsConfigFile| struts-config.xml（複数指定可） |（なし）| conf/from/validator/struts-config.xml,conf/from/upload/struts-config.xml  |
-| strutsAnalyze.validationFile| validation.xml（複数指定可） |（なし）| conf/from/validator/validation.xml,conf/from/upload/validation.xml  |
-| strutsAnalyze.module| struts-config.xmlに付与しているmodule名（複数指定可） |（なし）| validator,upload  |
+| strutsAnalyze.strutsConfigFile| struts-config.xml（複数指定可） |（なし）| conf/from/struts-config.xml |
+| strutsAnalyze.validationFile| validation.xml（複数指定可） |（なし）| conf/from/validation.xml |
+| strutsAnalyze.module| struts-config.xmlに付与しているmodule名（複数指定可） |（なし）| （修正不要） |
 | convertMode| 変換元アプリケーションの利用フレームワーク(1...Struts、2...SAStruts)| 2  | 1|
 
 
@@ -204,8 +204,8 @@ filter-mapping要素の既存パスを削除し、アプリケーション固有
   ...
 -   <url-pattern>/action/*</url-pattern>
 -   <url-pattern>/</url-pattern>
-+   <url-pattern>/validator/registration-submit.do</url-pattern>
-+   <url-pattern>/upload/upload-submit.do</url-pattern>
++   <url-pattern>/registration-submit.do</url-pattern>
++   <url-pattern>/upload-submit.do</url-pattern>
   ...
 </filter-mapping>
 ```
@@ -238,13 +238,9 @@ nablarch.commonProperty.basePackage要素を以下のように修正してくだ
 +registrationForm.title.edit=ユーザ情報を編集
 +registrationForm.firstname.displayname=名(FirstName)
 +registrationForm.lastname.displayname=姓(LastName)
-+registrationForm.addr.displayname=住所（番地）
-+registrationForm.city.displayname=住所（市町村）
-+registrationForm.stateprov.displayname=住所（都道府県）
-+registrationForm.zippostal.displayname=郵便番号
++registrationForm.addr.displayname=住所
 +registrationForm.phone.displayname=電話番号（固定でも携帯でも可）
 +registrationForm.email.displayname=メールアドレス
-+registrationForm.lastname.maskmsg=姓には空白を含めることはできません
 
 +button.cancel=Cancel
 +button.confirm=Confirm
@@ -266,8 +262,8 @@ nablarch.commonProperty.basePackage要素を以下のように修正してくだ
 
 |種類| コピー元(zipファイル内のパス） | コピー先(myapp-web) | 備考 |
 |--|--|--|--|
-|htmlファイル |oscana-example-struts/index.html   | myapp-web/src/main/webapp/ |`index.html`だけをコピーしてください。|
-|gifファイル |oscana-example-struts/validator/struts-power.gif   | myapp-web/src/main/webapp/validator/ |`struts-power.gif`だけをコピーしてください。|
+|htmlファイル |oscana-example-struts/WebContent/index.html   | myapp-web/src/main/webapp/ |`index.html`だけをコピーしてください。|
+
 
 ### 3.5 アプリケーションのビルド
 

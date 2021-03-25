@@ -1,7 +1,7 @@
 ## アプリケーションを変換する
 
 
-本書では、実際のアプリケーションを変換し、必要に応じてコードを修正して動作させるための手順を説明します。
+実際のアプリケーションを変換し、必要に応じてコードを修正して動作させるための手順を説明します。
 <table border="2">
 <tr><td>
 <b>[前提]</b><br>
@@ -19,13 +19,13 @@
 
 | No | 表題 | 実施内容詳細 | 参照先 |
 |--|--|--|--|
-| 1 | リライトツールへの変換対象の配置 | 参照先の記述に沿って、アプリケーションソースをリライトツールにコピーしてください。| [Struts1からの移行](../getting_started/sample_change_struts.md#21-リライトツールへの変換対象の配置) /[SAStrutsからの移行](../getting_started/sample_change_sastruts.md#21-リライトツールへの変換対象の配置) |
-| 2 | リライトツールの設定変更 | 参照先の記述に沿いますが、設定ファイルの記述方法については「[2.1.リライトツールの設定方法](#21リライトツールの設定方法)」を参照してください。 <br>参照先では`sample.properties`を修正する手順を紹介していますが、別のファイルとして作成しても構いません。| [Struts1からの移行](../getting_started/sample_change_struts.md#22-リライトツールの設定変更) /[SAStrutsからの移行](../getting_started/sample_change_sastruts.md#22-リライトツールの設定変更) |
+| 1 | リライトツールへの変換対象の配置 | 参照先の記述に沿って、アプリケーションソースをリライトツールの変換元フォルダにコピーしてください。| [Struts1からの移行](../getting_started/sample_change_struts.md#21-リライトツールへの変換対象の配置) /[SAStrutsからの移行](../getting_started/sample_change_sastruts.md#21-リライトツールへの変換対象の配置) |
+| 2 | リライトツールの設定変更 | 「[2.1.リライトツールの設定方法](#21リライトツールの設定方法)」を参照して、リライトツールの設定ファイルを修正してください。|  |
 | 3 | リライトツールの実行 | 参照先の記述に沿って、リライトツールを実行してください。<br>前項の作業で設定ファイル名を変更した場合は、コマンドの引数に付与している`sample.properties`は適切な名前に変更してください。 | [Struts1からの移行](../getting_started/sample_change_struts.md#23-リライトツールの実行) /[SAStrutsからの移行](../getting_started/sample_change_sastruts.md#23-リライトツールの実行) |
 | 4 | ソースコードの修正 | リライトツールによる変換がサポートされていない箇所は、手作業による修正が必要です。<br>詳細は[「開発作業が必要な個所を見つける」](rebuild_guide.md)を参照してください。<br>この作業はアプリケーションのビルドを実施する前であればどこで実施しても構いません。 | |
 | 5 | 変換結果のNablarchプロジェクトへの配置 | 参照先の記述に沿って、変換結果をNablarchプロジェクトにコピーしてください。 | [Struts1からの移行](../getting_started/sample_change_struts.md#31-変換結果のnablarchプロジェクトへの配置) /[SAStrutsからの移行](../getting_started/sample_change_sastruts.md#31-変換結果のnablarchプロジェクトへの配置) |
 | 6 | 互換ライブラリを使用するための設定修正 | 参照先の記述に沿って、Nablarchプロジェクトの設定ファイルを修正してください。 | [Struts1からの移行](../getting_started/sample_change_struts.md#32-struts1用互換ライブラリを使用するための設定修正) /[SAStrutsからの移行](../getting_started/sample_change_sastruts.md#32-sastruts用互換ライブラリを使用するための設定修正) |
-| 7 | 設定ファイルの修正 |参照先の記述に沿いますが、設定ファイルの記述方法については「[2.2.設定ファイルの修正方法](#22設定ファイルの修正方法)」を参照してください。 | [Struts1からの移行](../getting_started/sample_change_struts.md#33-設定ファイルの修正) /[SAStrutsからの移行](../getting_started/sample_change_sastruts.md#33-設定ファイルの修正) |
+| 7 | 設定ファイルの修正 |「[2.2.設定ファイルの修正方法](#22設定ファイルの修正方法)」を参照して、Nablarchプロジェクトにアプリケーション固有の設定をしてください。 | |
 | 8 | 画面表示用ファイルの配置 | 参照先の記述に沿って、アプリケーションのhtmlや画像、スクリプト等をNablarchプロジェクトに配置してください。 | [Struts1からの移行](../getting_started/sample_change_struts.md#34-画面表示用ファイルの配置) /[SAStrutsからの移行](../getting_started/sample_change_sastruts.md#34-画面表示用ファイルの配置) |
 | 9 | アプリケーションのビルド | 参照先の記述に沿って、アプリケーションをビルドしてください。 | [Struts1からの移行](../getting_started/sample_change_struts.md#35-アプリケーションのビルド) /[SAStrutsからの移行](../getting_started/sample_change_sastruts.md#35-アプリケーションのビルド) |
 | 10 | アプリケーションの実行 | 参照先の記述に沿って、アプリケーションを実行してください。 | [Struts1からの移行](../getting_started/sample_change_struts.md#36-アプリケーションの実行) /[SAStrutsからの移行](../getting_started/sample_change_sastruts.md#36-アプリケーションの実行) |
@@ -37,7 +37,6 @@
 
 リライトツールはSAStrutsで使用するS2JDBCの外部SQLファイルをNablarchのデータベースアクセス機能に準拠した外部SQL形式に変換する機能を提供します。<br>
 この機能を使用する場合は「No1.リライトツールへの変換対象の配置」「No5.変換結果のNablarchプロジェクトへの配置」を実施するときに以下を考慮してください。<br>
-※サンプルアプリケーションでは使用していません。
 
 <table border="2">
 <tr><td>
@@ -70,7 +69,11 @@ SQLファイルの配置場所等については[データベースアクセス(
 
 ### 2.1.リライトツールの設定方法
 
-リライトツールの設定方法を詳説します。<br>
+以下の場所にあるリライトツールの設定ファイルを修正してください。
+
+- 修正対象：`converter/sample.properties`
+
+※別のファイルとして作成しても構いません。
 
 #### 2.1.1 Struts1，SAStruts共通のパラメータ
 
@@ -122,13 +125,24 @@ strutsAnalyze.module=a,b
 
 ### 2.2.設定ファイルの修正方法
 
-Nablarchのブランクプロジェクトの設定方法を詳説します。<br>
-
-
-
 #### 2.2.1 web.xml
 
-`web.xml`のfilter-mappingの記述はリライトツールが生成する`routes.xml`のmatch要素を転記してください。
+ - 修正対象:`myapp-web/src/main/webapp/WEB-INF/web.xml`
+
+filter-mapping要素の既存パスを削除し、アプリケーション固有のリクエストパスを追記してください。
+
+```diff
+<filter-mapping>
+  ...
+-   <url-pattern>/action/*</url-pattern>
+-   <url-pattern>/</url-pattern>
++   <url-pattern>アプリケーション固有のリクエストパス</url-pattern>
++   <url-pattern>アプリケーション固有のリクエストパス</url-pattern>
+  ...
+</filter-mapping>
+```
+
+アプリケーション固有のリクエストパス の部分には、リライトツールが生成する`routes.xml`のmatch要素を転記してください。
 
 **[routes.xml]**
 
@@ -174,7 +188,24 @@ Nablarchのブランクプロジェクトの設定方法を詳説します。<br
 
 #### 2.2.2 common.config
 
-nablarch.commonProperty.basePackageで指定すべきベースパッケージについては[2.3.ベースパッケージについて](#23ベースパッケージについて)を参照してください。
+ - 修正対象:`myapp-web/src/main/resources/common.config`
+
+nablarch.commonProperty.basePackage要素をアプリケーション固有のベースパッケージに修正してください。
+
+```diff
+ # プロジェクトのベースパッケージ
+-nablarch.commonProperty.basePackage=com.example
++nablarch.commonProperty.basePackage=アプリケーション固有のベースパッケージ
+```
+
+アプリケーション固有のベースパッケージ の設定値については[2.3.ベースパッケージについて](#23ベースパッケージについて)を参照してください。
+
+#### 2.2.3 messages.properties
+
+ - 修正対象:`myapp-web/src/main/resources/messages.properties`
+
+上記ファイルにアプリケーション固有のメッセージを追記してください。
+
 
 ### 2.3.ベースパッケージについて
 

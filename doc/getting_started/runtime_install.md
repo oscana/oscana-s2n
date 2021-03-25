@@ -1,6 +1,6 @@
 # 互換ライブラリをインストールする
 
-本書ではNablarchのブランクプロジェクトに互換ライブラリをインストールして、リライトツールによって変換されたアプリケーションの動作環境を構築する手順を案内します。
+Nablarchのブランクプロジェクトに互換ライブラリをインストールして、リライトツールによって変換されたアプリケーションの動作環境を構築する手順を案内します。
 
 #### ファイル修正箇所の記述ルール
 
@@ -308,7 +308,7 @@ nablarch.core.validation.ee.Length.min.max.message
 +oscana.s2n.validation.Length.min.max.message={fieldName}は{min}文字以上{max}文字以下の値を入力してください。
 +oscana.s2n.validation.Length.fixed.message={fieldName}は{min}文字の値を入力してください。
 +oscana.s2n.validation.ParseByte.message={fieldName}はByte型として不正です。
-+oscana.s2n.validation.Pattern.message={fieldName}は入力形式が不正です。入力形式={regexp}。
++oscana.s2n.validation.Pattern.message={fieldName}は入力形式が不正です。
 +oscana.s2n.validation.CreditCardNumber.message={fieldName}はクレジットカードとして不正です。
 +oscana.s2n.validation.Email.message={fieldName}はメールとして不正です。
 +oscana.s2n.validation.Range.message={fieldName}は{min}以上{max}以下の数値を入力してください。
